@@ -30,18 +30,18 @@ You can also initialize the array using an initialization list:
 - [x] back
 - [x] data
 
-###Iterators
+### Iterators
 
 - [ ] begin and cbegin
 - [ ] end and cend
 - [ ] rbegin and crbegin
 - [ ] rend and crend
 
-###Capacity
+### Capacity
 - [x] empty
 - [x] size and max_size
 
-###Operations
+### Operations
 - [x] fill
 - [x] swap
 
