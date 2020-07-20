@@ -47,7 +47,7 @@ You can also initialize the array using an initialization list:
 
 ## Non-member functions
 
-###Operators
+### Operators
  - [ ] operator==
  - [ ] operator!=
  - [ ] operator<
