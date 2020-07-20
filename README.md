@@ -63,5 +63,5 @@ You can also initialize the array using an initialization list:
 
 
 # Documentation
-I'm using the std::array definition that can be found here : https://en.cppreference.com/w/cpp/container/array
+I'm using the std::array definition that can be found here : https://en.cppreference.com/w/cpp/container/array.  
 Also a special thanks to The Cherno's video : https://www.youtube.com/watch?v=TzB5ZeKQIHM
