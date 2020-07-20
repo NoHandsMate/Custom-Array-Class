@@ -48,12 +48,12 @@ You can also initialize the array using an initialization list:
 ## Non-member functions
 
 ### Operators
- - [ ] operator==
- - [ ] operator!=
- - [ ] operator<
- - [ ] operator<=
- - [ ] operator>
- - [ ] operator>=
+ - [x] operator==
+ - [x] operator!=
+ - [x] operator<
+ - [x] operator<=
+ - [x] operator>
+ - [x] operator>=
  - [ ] operator<=>
 
 ### Other functions
