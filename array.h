@@ -6,6 +6,7 @@
 
 #pragma once
 #include <iostream>
+#include <initializer_list> //for initializer_list 
 
 namespace custom {
 
@@ -13,9 +14,15 @@ namespace custom {
     template<typename type, size_t size> //type: the type of the array. size : the size of the array
     class Array
     {
+    private:
+	    type a_Data[size];
 	public:
-        Array()
-        
+        template<typename... T> 
+        Array(T... ts) //variadic template constructor for array initialization
+            :a_Data{ts...}
+        {
+        }
+
 	    constexpr int Size() const {  //Returns the size of the array
 		    return size;
 	    }
@@ -77,8 +84,7 @@ namespace custom {
         constexpr const type* data() const { return a_Data; } //Returns a pointer to the first element in the array object.
                                                               //Because elements in the array are stored in contiguous //storage locations, the pointer retrieved can be offset to //access any element in the array.
 	    
-	private:
-	    type a_Data[size];
+	
 
     };
 }
