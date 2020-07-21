@@ -7,6 +7,7 @@
 #pragma once
 #include <iostream>
 #include <initializer_list>
+#include <iterator>
 
 namespace custom {
 
@@ -77,13 +78,8 @@ namespace custom {
 	    }
 
 
-	    constexpr bool empty() const { //Checks if the size of array is 0
-		    if(size > 0)
-		    {
-		        return false;
-		    }
-		    else
-		        return true;
+	    constexpr bool empty() const { //Checks if the size of array is 0		    
+			return (size > 0) ? false : true;
 		}
 
 	    constexpr type& at(std::size_t index) //Returns the element at the specified index
@@ -120,6 +116,8 @@ namespace custom {
 	    constexpr type* data() { return a_Data;}      
         constexpr const type* data() const { return a_Data; }
 	    
+		//Iterators
+
 		//Operators
 		template<typename T, std::size_t S> 
 		constexpr bool operator==(const Array<T, S>& r_operand) //This overload for all the operators is necessary when the arrays are of equal size. 
@@ -220,199 +218,87 @@ namespace custom {
 		template<typename T, std::size_t S> 
 		constexpr bool operator<(const Array<T, S>& r_operand)
 		{
-			if(Size() < r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+
+		    return (Size() < r_operand.Size()) ? true : false;
 		}
 		template<typename T, std::size_t S> 
 		constexpr const bool operator<(const Array<T, S>& r_operand) const
 		{
-			if(Size() < r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() < r_operand.Size()) ? true : false;
 		}
 		constexpr bool operator<(const Array& r_operand)
 		{
-			if(Size() < r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() < r_operand.Size()) ? true : false;
 		}
 		
 		constexpr const bool operator<(const Array& r_operand) const
 		{
-			if(Size() < r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() < r_operand.Size()) ? true : false;
 		}
 
 		template<typename T, std::size_t S> 
 		constexpr bool operator<=(const Array<T, S>& r_operand)
 		{
-			if(Size() <= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() <= r_operand.Size()) ? true : false;
 		}
 		template<typename T, std::size_t S> 
 		constexpr const bool operator<=(const Array<T, S>& r_operand) const
 		{
-			if(Size() <= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() <= r_operand.Size()) ? true : false;
 		}
 
 		constexpr bool operator<=(const Array& r_operand)
 		{
-			if(Size() <= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() <= r_operand.Size()) ? true : false;
 		}
 
 
 		constexpr const bool operator<=(const Array& r_operand) const
 		{
-			if(Size() <= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() <= r_operand.Size()) ? true : false;
 		}
 
 		template<typename T, std::size_t S>
 		constexpr bool operator>(const Array<T, S>& r_operand)
 		{
-			if(Size() > r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() > r_operand.Size()) ? true : false;
 		}
 		template<typename T, std::size_t S>
 		constexpr const bool operator>(const Array<T, S>& r_operand) const
 		{
-			if(Size() > r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() > r_operand.Size()) ? true : false;
 		}
 
 		constexpr bool operator>(const Array& r_operand)
 		{
-			if(Size() < r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() > r_operand.Size()) ? true : false;
 		}
 
 
 		constexpr const bool operator>(const Array& r_operand) const
 		{
-			if(Size() < r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() > r_operand.Size()) ? true : false;
 		}
 
-		
 		template<typename T, std::size_t S>
 		constexpr bool operator>=(const Array<T, S>& r_operand)
 		{
-			if(Size() >= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() >= r_operand.Size()) ? true : false;
 		}
 
 		template<typename T, std::size_t S>
 		constexpr const bool operator>=(const Array<T, S>& r_operand) const
 		{
-			if(Size() >= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() >= r_operand.Size()) ? true : false;
 		}
 
 		constexpr bool operator>=(const Array& r_operand)
 		{
-			if(Size() >= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() >= r_operand.Size()) ? true : false;
 		}
 		constexpr const bool operator>=(const Array& r_operand) const
 		{
-			if(Size() >= r_operand.Size())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (Size() >= r_operand.Size()) ? true : false;
 		}
     };
 }
