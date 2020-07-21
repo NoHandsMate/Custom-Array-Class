@@ -1,7 +1,11 @@
 
-/*
-    Created by Lorenzo Cecchini, 
-    inspired by The Cherno's video : https://www.youtube.com/watch?v=TzB5ZeKQIHM
+/**
+   * Created by Lorenzo Cecchini, 
+   * inspired by The Cherno's video : https://www.youtube.com/watch?v=TzB5ZeKQIHM
+   * 
+   * @tparam type. type of the array.
+   * @tparam size. size of the array.
+	
 */
 
 #pragma once
@@ -17,6 +21,8 @@ namespace custom {
     private:
 	    type a_Data[size];
 	public:
+
+		Array() = default;
 
         Array(std::initializer_list<type> t)
 		{
@@ -113,10 +119,31 @@ namespace custom {
         //Because elements in the array are stored in contiguous //storage locations, the pointer retrieved can be offset to 
 		//access any element in the array
 
-	    constexpr type* data() { return a_Data;}      
-        constexpr const type* data() const { return a_Data; }
-	    
+	    constexpr type* data() const { return const_cast<type*>(a_Data); }  //const_cast is necessary when the array is const => converts type* to const type*  
+
 		//Iterators
+
+		constexpr type* begin() { return data(); } //Returns an iterator that points to the first element of the array
+		constexpr type* begin() const { return data(); } 
+
+		constexpr type* end() { return &a_Data[size]; } //Returns an iterator that points to 'past-the-end' element of the array
+		constexpr type* end() const { return const_cast<type*>(&a_Data[size]); }
+
+		typedef std::reverse_iterator<type*> reverse_iterator; //Define the reverse iterator
+
+		constexpr reverse_iterator rbegin() { return reverse_iterator(end()); } //Returns a reverse iterator that points to the element right before the last
+		constexpr reverse_iterator rbegin() const { return reverse_iterator(end()); }
+
+		constexpr reverse_iterator rend() { return reverse_iterator(begin()); } //Returns a reverse iterator pointing to the element preceding the first element in the array.
+		constexpr reverse_iterator rend() const { return reverse_iterator(begin()); }
+
+		constexpr const type* cbegin() const { return data(); } //Returns a const iterator that points to the first element of the array
+		constexpr const type* cend() const { return &a_Data[size]; } //Returns a const iterator that points to 'past-the-end' element of the array
+
+		constexpr const reverse_iterator crbegin() const { return reverse_iterator(end()); } //Returns a const iterator that points to the element right before the last
+		constexpr const reverse_iterator crend() const { return reverse_iterator(begin()); } //Returns a const iterator that points to the element preceding the first element in the array
+
+
 
 		//Operators
 		template<typename T, std::size_t S> 
