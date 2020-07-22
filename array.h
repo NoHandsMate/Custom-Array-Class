@@ -18,7 +18,7 @@ namespace custom {
     template<typename type, std::size_t size> //type: the type of the array. size : the size of the array
     class Array
     {
-    private:
+    public:
 	    type a_Data[size];
 	public:
 
@@ -142,7 +142,6 @@ namespace custom {
 
 		constexpr const reverse_iterator crbegin() const { return reverse_iterator(end()); } //Returns a const iterator that points to the element right before the last
 		constexpr const reverse_iterator crend() const { return reverse_iterator(begin()); } //Returns a const iterator that points to the element preceding the first element in the array
-
 
 
 		//Operators
@@ -328,4 +327,31 @@ namespace custom {
 			return (Size() >= r_operand.Size()) ? true : false;
 		}
     };
+
+	//other function
+
+	//FUNCTION GET: EXTRACTS THE Ith ELEMENT FROM THE ARRAY
+	template<std::size_t I, class T, std::size_t N>
+	constexpr T& get(custom::Array<T, N>& arr)
+	{
+		return arr.a_Data[I];
+	}
+
+	template<std::size_t I, class T, std::size_t N>
+	constexpr T&& get(custom::Array<T, N>&& arr)
+	{
+		return arr.a_Data[I];
+	}
+
+	template<std::size_t I, class T, std::size_t N>
+	constexpr const T& get(const custom::Array<T, N>& arr)
+	{
+		return arr.a_Data[I];
+	}
+
+	template<std::size_t I, class T, std::size_t N>
+	constexpr const T&& get(const custom::Array<T, N>&& arr)
+	{
+		return const_cast<T>(arr.a_Data[I]);
+	}
 }
