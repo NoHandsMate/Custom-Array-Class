@@ -32,10 +32,10 @@ You can also initialize the array using an initialization list:
 
 ### Iterators
 
-- [ ] begin and cbegin
-- [ ] end and cend
-- [ ] rbegin and crbegin
-- [ ] rend and crend
+- [x] begin and cbegin
+- [x] end and cend
+- [x] rbegin and crbegin
+- [x] rend and crend
 
 ### Capacity
 - [x] empty
