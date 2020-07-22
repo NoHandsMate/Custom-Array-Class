@@ -16,7 +16,7 @@ Then create an array using this syntax:
 You can also initialize the array using an initialization list:
 
 > ```c++
-> custom::Array<int, 3> array {1, 2 , 3};
+> custom::Array<int, 3> array {1, 2, 3};
 > ```
 
 # TODO
@@ -57,8 +57,8 @@ You can also initialize the array using an initialization list:
  - [ ] operator<=>
 
 ### Other functions
-- [ ] std::get
-- [ ] std::swap
+- [x] std::get
+- [x] std::swap
 - [ ] std::to_array
 
 
